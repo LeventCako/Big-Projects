@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Es6</title>
+    <script src="https://cdn.jsdelivr.net/npm/countable"></script>
+    <style>
+        body {
+            background-color: rgb(57, 133, 136);
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .Button-div {
+            margin-top: 30%;
+        }
+
+        .Button3-div {
+            display: flex;
+            justify-content: space-around;
+
+
+        }
+
+
+
+        .Input-Sentence {
+            display: flex;
+            justify-content: center;
+            margin-top: -15%;
+            height: 40px;
+            line-height: 0;
+            background-color: cadetblue;
+
+
+        }
+
+        .Input-Field {
+            position: relative;
+        }
+
+        .DeleteText {
+
+            background-color: red;
+            color: white;
+            font-weight: bold;
+            border: none;
+
+        }
+
+        .Title {
+            display: flex;
+            justify-content: center;
+            color: white;
+            margin-top: 60px;
+
+        }
+
+        .countChar,
+        .countWords,
+        .countBoth,
+        .LiveCountBtn,
+        .ReadingTime,
+        .SpeakingTime {
+            background-color: #FFFFFF;
+            border: 0;
+            border-radius: .5rem;
+            box-sizing: border-box;
+            color: #111827;
+            font-family: "Inter var", ui-sans-serif, system-ui, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            font-size: .875rem;
+            font-weight: 600;
+            line-height: 1.25rem;
+            padding: .75rem 1rem;
+            text-align: center;
+            text-decoration: none #D1D5DB solid;
+            text-decoration-thickness: auto;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            cursor: pointer;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+        }
+
+        .countChar:hover,
+        .countBoth:hover,
+        .countWords:hover,
+        .LiveCountBtn:hover,
+        .ReadingTime:hover,
+        .SpeakingTime:hover {
+            background-color: rgb(210, 212, 214);
+            transition: 0.7s;
+
+            box-shadow: 3px 3px rgb(210, 212, 214);
+        }
+
+
+
+
+
+
+
+        @media only screen and (max-width: 532px) {
+            .Button3-div {
+                display: grid;
+                grid-template-columns: 1fr;
+                padding-bottom: 10px;
+            }
+
+            .Input-Sentence {
+                margin-top: 10px;
+            }
+
+
+        }
+
+        .Login-Button {
+
+            display: block;
+            margin-left: auto;
+            margin-right: 0;
+            height: 40px;
+
+            background-color: #FFFFFF;
+            border: 1px solid rgb(209, 213, 219);
+            border-radius: .5rem;
+            box-sizing: border-box;
+            color: #111827;
+            font-family: "Inter var", ui-sans-serif, system-ui, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            font-size: .875rem;
+            font-weight: 600;
+            line-height: 1rem;
+            padding: .75rem 1rem;
+            text-align: center;
+            text-decoration: none #D1D5DB solid;
+            text-decoration-thickness: auto;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            cursor: pointer;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+        }
+
+        .Login-Button:hover {
+            background-color: rgb(175, 178, 180);
+            transition: 0.7s;
+            box-shadow: 3px 4px rgb(175, 178, 180);
+            border: none;
+            width: 70px;
+        }
+
+        .LoginDiv {
+            /* This is how you center an Div */
+            position: absolute;
+            margin: auto;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+
+
+
+            background-color: aliceblue;
+            height: 400px;
+            width: 300px;
+            z-index: 9999;
+            padding-left: 15%;
+            border-radius: 12px;
+
+
+
+
+        }
+
+        .LoginTitle {
+            display: block;
+            position: absolute;
+            left: 50%;
+            top: 5%;
+
+            transform: translate(-50%, -50%);
+        }
+
+
+        .LoginUserName {
+            height: 40px;
+            border-radius: 12px;
+            border: none;
+            position: absolute;
+            left: 50%;
+            top: 30%;
+
+            transform: translate(-50%, -50%);
+        }
+
+        .LoginUserName:hover,
+        .LoginPassword:hover {
+            border: 2px solid;
+            border-color: green;
+        }
+
+        .LoginPassword {
+            height: 40px;
+            border-radius: 12px;
+            border: none;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+
+            transform: translate(-50%, -50%);
+
+
+        }
+
+        .LoginSubmitButton {
+            height: 40px;
+            border-radius: 12px;
+            border: none;
+            /* The Way to center Items in an div */
+            position: absolute;
+            left: 50%;
+            top: 80%;
+
+            transform: translate(-50%, -50%);
+            width: 120px;
+        }
+
+        .LoginSubmitButton:hover {
+            background-color: lightgray;
+            transition: 0.7s;
+        }
+
+        @media only screen and(max-width:600px) {
+            .LoginDiv {
+                width: 80%;
+            }
+        }
+
+
+        .Result {
+            background-color: #e6e7e7;
+            width: fit-content;
+            padding: 10px;
+            border-radius: 12px;
+            cursor: pointer;
+
+            position: absolute;
+            left: 50%;
+            top: 20%;
+
+            transform: translate(-50%, -50%);
+
+
+        }
+
+        @media only screen and (max-width:600px) {
+            .Result {
+
+                position: absolute;
+                left: 50%;
+                top: 68%;
+            }
+        }
+
+
+
+
+
+
+        .BodyContent {
+            filter: blur(3px);
+            transition: 0.7s;
+        }
+
+        .BodyContentAfter {
+            filter: none;
+        }
+
+        .UserProfile {
+            height: 40px;
+            width: 120px;
+            border-radius: 12px;
+            border: none;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+
+
+
+        }
+
+        .ProfileMenu {
+            background-color: #FFFFFF;
+            width: 100px;
+            height: 100px;
+        }
+
+        .DropButton:hover {
+            height: 43px;
+        }
+
+        .Menu-Dropdown {
+
+            position: absolute;
+            right: 170px;
+            top: 50px;
+            display: inline-block;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .dropdown-content {
+                min-width: 80px;
+
+            }
+
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #e6e7e7;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            cursor: pointer;
+        }
+
+        .Menu-Dropdown a:hover {
+            background-color: #Ddd;
+        }
+
+        .show {
+            display: block;
+        }
+
+        .dropdown2-content {
+            background-color: rgb(226, 225, 225);
+        }
+
+        .Todo-List-Button {
+            font-family: Arial, Helvetica, sans-serif;
+
+            height: 40px;
+            width: 120px;
+            border-radius: 12px;
+            border: none;
+            position: absolute;
+            left: 30px;
+            top: 10px;
+            
+
+        }
+
+       
+    </style>
+</head>
+
+<body>
+    <div id="BodyContent">
+        <div>
+            <button class="Login-Button" id="LoginButton">
+                Login
+            </button>
+        </div>
+        <h1 class="Title">Sentence Counter</h1>
+
+        <button class="Todo-List-Button" id="TodoListBtn">
+            Todo-List
+        </button>
+        <div class="Button-div">
+            <div class="Button3-div">
+
+                <button class="countChar" id="Count-Char">Count Characters</button>
+                <button id="Count-Words" class="countWords">Count Words</button>
+                <button id="Count-Both" class="countBoth">Do Both</button>
+                <button class="LiveCountBtn" id="liveCountBtn">Live Count</button>
+                <button class="ReadingTime" id="readingTime">Reading time</button>
+                <button class="SpeakingTime" id="speakingTime">Speaking time</button>
+            </div>
+
+            <div class="Input-Sentence" id="Input-Sentence">
+                <textarea type="text" placeholder="Enter Sentence" id="Input-Field"></textarea>
+                <button class="DeleteText">X</button>
+            </div>
+
+        </div>
+
+        <div class="Menu-Dropdown" id="MenuDropdown">
+
+            <div id="myDropdown" class="dropdown-content dropdown2-content">
+                <a value="option1" id="SignOutBtn">
+                    Sign-Out
+                </a>
+                <a value="option2" id="ContactMeBtn">
+                    Contact Me
+                </a>
+
+                <a value="option" id="SettingsBtn">
+                    Settings
+                </a>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+    <script src="script.js" type="module">
+ 
+    </script>
+   
+</body>
+
+</html>
